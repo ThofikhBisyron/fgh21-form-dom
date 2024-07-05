@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border-width: 1px;
+            border-style: solid;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label for="name">Siapa nama anda ?</label>
+            <div><input type="text" id="name"></div>
+        <label for="umur">Berapa umur anda ?</label>
+            <div><input type="text" id="umur"></div>
+        <label>Apa jenis kelamin anda ?</div>
+        <div><input type="radio" name="gender" id="genderL">Laki-Laki
+            <input type="radio" name="gender" id="genderP">Perempuan
+        </div>
+        <div>Apakah anda perokok ?</div>
+        <div><input type="radio" name="select" id="ya">Ya
+            <input type="radio" name="select" id="tidak">Tidak
+        </div>
+        <div>Jika anda perokok, rokok apa yang pernah anda coba ?</div>
+            <div><input type="checkbox" id="gudang">Gudang Garam Filter</div>
+            <div><input type="checkbox" id="lucky">Lucky Strike</div>
+            <div><input type="checkbox" id="marl">Marlboro</div>
+            <div><input type="checkbox" id="esse">Esse</div>
+        <div><input type="submit" name="submit" value="submit" id="btn"></div>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>gender</th>
+                <th>IsRespondent Smoker ?</th>
+                <th>Cigar variant that respondent have try</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  id="nametable">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+<script>
+
+const form = document.getElementById("form")
+const nameTable = document.getElementById("nametable")
+
+form.addEventListener("submit",(e) => {
+    e.preventDefault()
+    submit()
+}) 
+ const submit = () => {
+    const = document.getElementById("name").value
+    const = document,getElementById("umur").value
+
+    const newArray = [name,umur]
+    newArray.forEach((item) => {
+        const data = document.createElement("tr")
+        const text = document.createTextNode(item)
+        data.appendChild(text)
+        nameTable.appendChild(data)
+    })
+    form.reset()
+
+ }
+
+
+
+
+
+    // const form = document.getElementById("form")
+    // const name = document.createElement("div")
+    // form.appendChild(name)
+
+    // const textname = document.createTextNode("siapa nama anda ?")
+    // name.appendChild(textname)
+
+    // const nameInput = document.createElement("div")
+    // const input1 = document.createElement("input")
+    // input1.setAttribute("type", "text")
+    // form.appendChild(nameInput)
+    // nameInput.appendChild(input1)
+
+    // const umur = document.createElement("div")
+    // const textage = document.createTextNode("Berapa umur anda ?")
+    // form.appendChild(umur)
+    // umur.appendChild(textage)
+    
+    // const ageInput = document.createElement("div")
+    // const input2 = document.createElement("input")
+    // form.appendChild(ageInput)
+    // ageInput.appendChild(input2)
+
+    // const gender = document.createElement("div")
+    // const textgender = document.createTextNode("Apa jenis kelamin anda ?")
+    // form.appendChild(gender)
+    // gender.appendChild(textgender)
+
+    // const genderlnput = document.createElement("div")
+    // const genderL = document.createElement("input")
+    // genderL.setAttribute("type", "radio")
+    // genderL.setAttribute("name", "gender")
+    // const textL = document.createTextNode("Laki-Laki")
+    // form.appendChild(genderlnput)
+    // genderlnput.appendChild(genderL)
+    // genderlnput.appendChild(textL)
+
+    // const genderP = document.createElement("input")
+    // genderP.setAttribute("type", "radio")
+    // genderP.setAttribute("name", "gender")
+    // const textP = document.createTextNode("Perempuan")
+    // genderlnput.appendChild(genderP)
+    // genderlnput.appendChild(textP)
+    
+    // const cigar = document.createElement("div")
+    // const textCigar = document.createTextNode("Apakah anda perokok ?")
+    // form.appendChild(cigar)
+    // cigar.appendChild(textCigar)
+
+    // const cigarinput = document.createElement("div")
+    // const cigarYa  = document.createElement("input")
+    // cigarYa.setAttribute("type", "radio")
+    // cigarYa.setAttribute("name", "cigar")
+    // const cigarYaText = document.createTextNode("Ya")
+    // form.appendChild(cigarinput)
+    // cigarinput.appendChild(cigarYa)
+    // cigarinput.appendChild(cigarYaText)
+
+    // const cigarTidak  = document.createElement("input")
+    // cigarTidak.setAttribute("type", "radio")
+    // cigarTidak.setAttribute("name", "cigar")
+    // const cigarTidakText = document.createTextNode("Tidak")
+    // form.appendChild(cigarinput)
+    // cigarinput.appendChild(cigarTidak)
+    // cigarinput.appendChild(cigarTidakText)
+
+    // const cigarPernah = document.createElement("div")
+    // const cigarPernahText = document.createTextNode("Jika anda perokok, rokok apa yang anda pernah coba ?")
+    // form.appendChild(cigarPernah)
+    // cigarPernah.appendChild(cigarPernahText)
+    
+    // const listInput = document.createElement("div");
+    // const check1 = document.createElement("input");
+    // check1.setAttribute("type", "checkbox");
+    // const listName1 = document.createTextNode("Gudang Garam Filter");
+    // form.appendChild(listInput);
+    // listInput.appendChild(check1);
+    // listInput.appendChild(listName1);
+
+    // const listInput2 = document.createElement("div");
+    // const check2 = document.createElement("input");
+    // check2.setAttribute("type", "checkbox");
+    // const listName2 = document.createTextNode("Lucky Strike");
+    // form.appendChild(listInput2);
+    // listInput2.appendChild(check2);
+    // listInput2.appendChild(listName2);
+
+    // const listInput3 = document.createElement("div");
+    // const check3 = document.createElement("input");
+    // check3.setAttribute("type", "checkbox");
+    // const listName3 = document.createTextNode("Marlboro");
+    // form.appendChild(listInput3);
+    // listInput3.appendChild(check3);
+    // listInput3.appendChild(listName3);
+
+    // const listInput4 = document.createElement("div");
+    // const check4 = document.createElement("input");
+    // check4.setAttribute("type", "checkbox");
+    // const listName4 = document.createTextNode("Esse");
+    // form.appendChild(listInput4);
+    // listInput4.appendChild(check4);
+    // listInput4.appendChild(listName4);
+
+
+//     var paragraph = document.getElementById("p");
+// var text = document.createTextNode("This just got added");
+
+// paragraph.appendChild(text);
+
+    
+</script>
+</html>
