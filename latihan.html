@@ -3,81 +3,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./latihan.css">
     <style>
-        td {
-            border-width: 1px;
-            border-style: solid;
-            border-color: black;
-        }
     </style>
 </head>
 <body>
-    <form id="form">
-        <label for="name">Siapa nama anda ?</label>
+    <form id="form" class="form">
+        <div  class="form-up"><label for="name">Siapa nama anda ?</label>
             <div><input type="text" id="name"></div>
-        <label for="umur">Berapa umur anda ?</label>
-            <div><input type="text" id="umur"></div>
-        <label>Apa jenis kelamin anda ?</div>
-        <div><input type="radio" name="gender" id="genderL">Laki-Laki
-            <input type="radio" name="gender" id="genderP">Perempuan
         </div>
-        <div>Apakah anda perokok ?</div>
-        <div><input type="radio" name="select" id="ya">Ya
-            <input type="radio" name="select" id="tidak">Tidak
+        <div  class="form-up"><label for="umur">Berapa umur anda ?</label>
+            <div><input type="text" id="age"></div>
         </div>
-        <div>Jika anda perokok, rokok apa yang pernah anda coba ?</div>
-            <div><input type="checkbox" id="gudang">Gudang Garam Filter</div>
-            <div><input type="checkbox" id="lucky">Lucky Strike</div>
-            <div><input type="checkbox" id="marl">Marlboro</div>
-            <div><input type="checkbox" id="esse">Esse</div>
-        <div><input type="submit" name="submit" value="submit" id="btn"></div>
+        <div class="form-up"><label>Apa jenis kelamin anda ?</label>
+            <div class="radio">
+                <div><input type="radio" name="gender" id="genderL" value="Laki-Laki">Laki-Laki</div>
+                <div><input type="radio" name="gender" id="genderP" value="Perempuan">Perempuan</div>
+            </div>
+        </div>
+        <div class="form-up"><label>Apakah anda perokok ?</label>
+            <div class="radio">
+                <div><input type="radio" name="select" id="ya" value="Ya">Ya</div>
+                <div><input type="radio" name="select" id="tidak" value="Tidak">Tidak</div>
+            </div>
+        </div>
+        <div class="form-up"><label>Jika anda perokok, rokok apa yang pernah anda coba ?</label>
+            <div><input type="checkbox" id="gudang" value="Gudang Garam Filter">Gudang Garam Filter</div>
+            <div><input type="checkbox" id="lucky" value="Lucky Strike">Lucky Strike</div>
+            <div><input type="checkbox" id="marl" value="Marlboro">Marlboro</div>
+            <div><input type="checkbox" id="esse" value="Esse">Esse</div>
+        </div>
+        <div class="form-up"><input type="submit" name="submit" value="submit" id="btn"></div>
     </form>
-    <table>
+    <table id="table">
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Age</th>
-                <th>gender</th>
+                <th>Gender</th>
                 <th>IsRespondent Smoker ?</th>
                 <th>Cigar variant that respondent have try</th>
             </tr>
         </thead>
-        <tbody>
-            <tr  id="nametable">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+        <tbody id="tbody">
+            
         </tbody>
     </table>
 
 </body>
 <script>
+            document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault()
+            
+            
+            const name = document.getElementById("name").value
+            const age = document.getElementById("age").value
+            const gender = document.querySelector('input[name="gender"]:checked').value
+            const smoker = document.querySelector('input[name="select"]:checked').value
+            
+            
+            const cigarette = document.querySelectorAll('input[type="checkbox"]:checked')
+           
+            let cigarettes = '';
+            for (let i = 0; i < cigarette.length; i++) {
+                cigarettes += cigarette[i].value;
+                if (i < cigarette.length - 1) {
+                    cigarettes += ', ';
+                }
+            }
+            
+            const baris = document.createElement("tr")
 
-const form = document.getElementById("form")
-const nameTable = document.getElementById("nametable")
+            const nameisi = document.createElement("td")
+            nameisi.textContent = name
+            baris.appendChild(nameisi)
 
-form.addEventListener("submit",(e) => {
-    e.preventDefault()
-    submit()
-}) 
- const submit = () => {
-    const = document.getElementById("name").value
-    const = document,getElementById("umur").value
+            const ageisi = document.createElement("td")
+            ageisi.textContent = age
+            baris.appendChild(ageisi)
 
-    const newArray = [name,umur]
-    newArray.forEach((item) => {
-        const data = document.createElement("tr")
-        const text = document.createTextNode(item)
-        data.appendChild(text)
-        nameTable.appendChild(data)
-    })
-    form.reset()
+            const genderisi = document.createElement("td")
+            genderisi.textContent = gender
+            baris.appendChild(genderisi)
 
- }
+            const smokerisi = document.createElement("td")
+            smokerisi.textContent = smoker
+            baris.appendChild(smokerisi)
 
+            const cigarettesisi = document.createElement("td")
+            cigarettesisi.textContent = cigarettes
+            baris.appendChild(cigarettesisi)
+
+            document.querySelector("#tbody").appendChild(baris)
+            document.getElementById("form").reset()
+        });
 
 
 

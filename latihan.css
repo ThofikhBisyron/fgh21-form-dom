@@ -1,0 +1,48 @@
+body {
+    background-color: aliceblue;
+}
+form {
+    border-color: black;
+    border-radius: 1px;
+    border-style: solid;
+    margin-top: 150px;
+    margin-left: 40%;
+    margin-right: 40%   ;
+    background-color: beige;
+    border-radius: 20px;
+    
+}
+.form-up {
+    margin: 10px;
+    border-collapse: collapse;
+}
+.radio{
+    display: flex;
+    gap: 30px;
+
+}
+table {
+    margin-left: 28 %;
+    border-collapse: collapse;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+}
+th {
+    height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color: grey;
+    background-color: rgb(219, 239, 167);
+    font-size: 15px;
+
+
+}
+td{
+    padding-left: 15px;
+    height: 40px;
+    background-color: aliceblue;
+    margin-bottom: 20px;
+    
+}
